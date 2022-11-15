@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 441
     height: 947
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 348
+  controlID: 99
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 347
+  controlID: 123
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_MinSize: {x: 500, y: 200}
   m_MaxSize: {x: 40480, y: 16192}
   vertical: 0
-  controlID: 383
+  controlID: 59
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -368,23 +368,21 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Scripts/PlayerMenus/Shop
+    m_Folders: []
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
   m_StartGridSize: 64
-  m_LastFolders:
-  - Assets
+  m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: E:\Unity\DNAstudio\Games\InventoryShopTest
+  m_LastProjectPath: E:\Unity\DNAstudio\Games\InventoryShopPrivate
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 5a5e0000
     m_LastClickedID: 24154
-    m_ExpandedIDs: 000000005a5e000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000f8630000fa630000fc630000fe63000000640000026400000464000006640000086400000a6400000c6400000e64000010640000126400001464000016640000186400001a6400001c6400001e64000020640000226400002464000026640000286400002a6400002c6400002e640000306400003264000034640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -412,7 +410,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 411}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000005a5e00007a6700007e6700008a6700009c670000a06700006e7e0000707e0000827e0000fc7e00002c7f00004e7f0000687f0000a8b20000b4b2000086bf00009ebf0000b0bf0000b8bf0000bcbf0000c0bf0000f0bf000018c0000024c0000028c0000048c000009ac000009ec00000a2c00000a6c00000f4c00000
+    m_ExpandedIDs: ffffffff00000000f8630000fa630000fc630000fe63000000640000026400000464000006640000086400000a6400000c6400000e64000010640000126400001464000016640000186400001a6400001c6400001e64000020640000226400002464000026640000286400002a6400002c6400002e640000306400003264000034640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -540,9 +538,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5a3fffff
-      m_LastClickedID: -49318
-      m_ExpandedIDs: 5a3fffff6e40ffff9062ffff5479ffff30fbffff
+      m_SelectedIDs: da600000
+      m_LastClickedID: 24794
+      m_ExpandedIDs: 34fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -824,9 +822,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1047.955, y: 1024.3224, z: 1032.594}
+    m_Target: {x: -0.34836406, y: 8.537031, z: 1.8597741}
     speed: 2
-    m_Value: {x: 1047.955, y: 1024.3224, z: 1032.594}
+    m_Value: {x: -0.34836406, y: 8.537031, z: 1.8597741}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -873,13 +871,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.13685505, y: 0.2717291, z: -0.039072752, w: -0.9517855}
+    m_Target: {x: -0.076648034, y: 0.046939768, z: -0.0036143402, w: -0.99593866}
     speed: 2
-    m_Value: {x: -0.13685586, y: 0.2717307, z: -0.03907298, w: -0.95179105}
+    m_Value: {x: -0.07664861, y: 0.046940118, z: -0.0036143672, w: -0.99594605}
   m_Size:
-    m_Target: 10.053916
+    m_Target: 6.0945773
     speed: 2
-    m_Value: 10.053916
+    m_Value: 6.0945773
   m_Ortho:
     m_Target: 0
     speed: 2

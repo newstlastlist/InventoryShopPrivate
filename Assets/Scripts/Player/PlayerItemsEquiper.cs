@@ -42,7 +42,7 @@ public class PlayerItemsEquiper : MonoBehaviour
                 if (_currentWeapon.itemScriptableObj.Name == item.Name)
                 {
                     Destroy(_currentWeapon.itemGameObj);
-                    _currentHelmet.itemScriptableObj = null;
+                    _currentWeapon.itemScriptableObj = null;
                     return;
                 }
             }
