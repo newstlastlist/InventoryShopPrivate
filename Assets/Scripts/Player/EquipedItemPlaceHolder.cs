@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class EquipedItemPlaceHolder 
 {
     public Item.ItemTypeEnum itemType;

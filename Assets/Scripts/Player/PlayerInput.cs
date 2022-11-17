@@ -23,7 +23,7 @@ public class PlayerInput : MonoBehaviour
                 _inventoryCamera.GoToInventoryMode();
                 return;
             }
-            if(_playerUimenuSystem.InventoryMenu.IsOpened)
+            else
             {
                 _playerUimenuSystem.CloseInventoryMenu();
                 _inventoryCamera.GoToMainPlayerCamera();
@@ -38,7 +38,7 @@ public class PlayerInput : MonoBehaviour
                 _playerUimenuSystem.OpenShopMenu();
                 return;
             }
-            if(_playerUimenuSystem.ShopMenu.IsOpened)
+            else
             {
                 _playerUimenuSystem.CloseShopMenu();
                 return;

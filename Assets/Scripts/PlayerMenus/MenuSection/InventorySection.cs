@@ -1,5 +1,4 @@
 
-
 public class InventorySection : AbstractItemsSection
 {
     public override void AddItemRepresenterToSection(Item item, ItemRepresenterInUI representer)
