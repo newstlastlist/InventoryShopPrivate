@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bc66317e8e6f1c44b06b29d3bba4a02, type: 3}
-  m_Name: PlayerInventoryItems
+  m_Name: ShopItems
   m_EditorClassIdentifier: 
   _items:
-  - {fileID: 11400000, guid: 92310008ce068d54db8a5648c1df0c22, type: 2}
-  - {fileID: 11400000, guid: 70e5233b0eac6e449b606ce5e545d69e, type: 2}
-  - {fileID: 11400000, guid: de5dba642d140ab45b751d6c7cf117c8, type: 2}
-  - {fileID: 11400000, guid: 2c40e56fee42b504da3fa7554884fa69, type: 2}
+  - {fileID: 11400000, guid: 87ecba171d28b814396df3bb9f801480, type: 2}
+  - {fileID: 11400000, guid: fb444f5f563b4644e9694fa70e0c4bad, type: 2}

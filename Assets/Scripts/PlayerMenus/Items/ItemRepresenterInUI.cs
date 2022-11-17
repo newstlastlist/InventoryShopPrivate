@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ItemRepresenterInUI : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class ItemRepresenterInUI : MonoBehaviour
     [SerializeField] private Image _image;
     private int _itemCost;
 
+    public TextMeshProUGUI Name { get => _name;  }
 
     public void SetName(string name)
     {
@@ -22,15 +25,15 @@ public class ItemRepresenterInUI : MonoBehaviour
         _image.color = new Color(color.r, color.g, color.b, 1);
 
     }
-    public void SetCost(int cost)
+    public void SetPrice(int cost)
     {
         _itemCost = cost;
 
         _cost.text = _itemCost.ToString();
     }
-    public void SetActionOnClick(Transform player, AbstractMenuItem item)
+    public void SetActionOnClick(UnityAction action)
     {
-        GetComponent<Button>().onClick.AddListener(() => item.OnClick(player));
+        GetComponent<Button>().onClick.AddListener(action);
     }
    
 

@@ -6,5 +6,5 @@ using UnityEngine;
 public class EquipedItem 
 {
     public GameObject itemGameObj = null;
-    public InventoryItem itemScriptableObj = null;
+    public Item itemScriptableObj = null;
 }

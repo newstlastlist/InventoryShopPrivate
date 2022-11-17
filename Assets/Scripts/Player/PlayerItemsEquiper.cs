@@ -13,11 +13,11 @@ public class PlayerItemsEquiper : MonoBehaviour
         _currentHelmet = new EquipedItem();
         _currentWeapon = new EquipedItem();
     }
-    public void Equip(InventoryItem item)
+    public void Equip(Item item)
     {
 
 
-        if (item is InventoryHelmet)
+        if (item.ItemType == Item.ItemTypeEnum.Helmet)
         {
             if (_currentHelmet.itemScriptableObj != null)
             {
@@ -35,7 +35,7 @@ public class PlayerItemsEquiper : MonoBehaviour
             SetupCurrentEquipedItem(_currentHelmet, obj, item);
 
         }
-        else if (item is InventoryWeapon)
+        else if (item.ItemType == Item.ItemTypeEnum.Weapon)
         {
             if (_currentWeapon.itemScriptableObj != null)
             {
@@ -53,7 +53,7 @@ public class PlayerItemsEquiper : MonoBehaviour
         }
 
     }
-    private void SetupCurrentEquipedItem(EquipedItem equipedItem, GameObject obj, InventoryItem item)
+    private void SetupCurrentEquipedItem(EquipedItem equipedItem, GameObject obj, Item item)
     {
         if (equipedItem.itemGameObj != null)
         {
@@ -63,7 +63,7 @@ public class PlayerItemsEquiper : MonoBehaviour
         equipedItem.itemScriptableObj = item;
 
     }
-    private GameObject CreateAndSetupItemInPartOfBody(InventoryItem item, ItemProperties properties)
+    private GameObject CreateAndSetupItemInPartOfBody(Item item, ItemProperties properties)
     {
         var obj = Instantiate(item.Prefab, transform.position, Quaternion.identity);
 

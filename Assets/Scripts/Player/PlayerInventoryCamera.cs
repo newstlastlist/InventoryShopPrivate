@@ -17,20 +17,21 @@ public class PlayerInventoryCamera : MonoBehaviour
         _startRotation = transform.localRotation;
 
     }
-    public void CallInventoryCamera()
-    {
-        if(!_isCameraInInventoryMode)
-        {
-            GoToInventoryMode();
-            _isCameraInInventoryMode = true;
-        }
-        else
-        {
-            GoToMainPlayerCamera();
-            _isCameraInInventoryMode = false;
-        }
-    }
-    private void GoToInventoryMode()
+    // public void CallInventoryCamera()
+    // {
+
+    //     if(!_isCameraInInventoryMode)
+    //     {
+    //         GoToInventoryMode();
+    //         _isCameraInInventoryMode = true;
+    //     }
+    //     else
+    //     {
+    //         GoToMainPlayerCamera();
+    //         _isCameraInInventoryMode = false;
+    //     }
+    // }
+    public void GoToInventoryMode()
     {
         _camera.depth = _mainCamera.depth + 10;
 
@@ -40,7 +41,7 @@ public class PlayerInventoryCamera : MonoBehaviour
         transform.DOLocalMove(_startPosition, _moveTime);
         transform.DOLocalRotateQuaternion(_startRotation, _moveTime);
     }
-    private void GoToMainPlayerCamera()
+    public void GoToMainPlayerCamera()
     {
 
         transform.DOMove(_mainCamera.transform.position, _moveTime);

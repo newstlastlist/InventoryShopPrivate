@@ -17,11 +17,35 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            _playerUimenuSystem.CallInventoryMenu();
+            if (!_playerUimenuSystem.InventoryMenu.IsOpened)
+            {
+                _playerUimenuSystem.OpenInventoryMenu();
+                _inventoryCamera.GoToInventoryMode();
+                return;
+            }
+            if(_playerUimenuSystem.InventoryMenu.IsOpened)
+            {
+                _playerUimenuSystem.CloseInventoryMenu();
+                _inventoryCamera.GoToMainPlayerCamera();
+                return;
+            }
 
-            _inventoryCamera.CallInventoryCamera();
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (!_playerUimenuSystem.ShopMenu.IsOpened)
+            {
+                _playerUimenuSystem.OpenShopMenu();
+                return;
+            }
+            if(_playerUimenuSystem.ShopMenu.IsOpened)
+            {
+                _playerUimenuSystem.CloseShopMenu();
+                return;
+            }
+
         }
     }
 }
