@@ -17,20 +17,7 @@ public class PlayerInventoryCamera : MonoBehaviour
         _startRotation = transform.localRotation;
 
     }
-    // public void CallInventoryCamera()
-    // {
-
-    //     if(!_isCameraInInventoryMode)
-    //     {
-    //         GoToInventoryMode();
-    //         _isCameraInInventoryMode = true;
-    //     }
-    //     else
-    //     {
-    //         GoToMainPlayerCamera();
-    //         _isCameraInInventoryMode = false;
-    //     }
-    // }
+   
     public void GoToInventoryMode()
     {
         _camera.depth = _mainCamera.depth + 10;

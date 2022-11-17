@@ -1,86 +1,97 @@
-using System.Collections;
+using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerItemsEquiper : MonoBehaviour
 {
-    [SerializeField] private ItemProperties _helmet;
-    [SerializeField] private ItemProperties _weapon;
-    private EquipedItem _currentHelmet;
-    private EquipedItem _currentWeapon;
+    [SerializeField] private List<ItemBodyProperties> _itemBodyProperies;
+    private List<EquipedItemPlaceHolder> _equipedItems;
     private void Awake()
     {
-        _currentHelmet = new EquipedItem();
-        _currentWeapon = new EquipedItem();
+        CreateItemPlaceholders();
     }
-    public void Equip(Item item)
+    public void TryToEquip(Item item)
     {
+        var appropriateItemPlaceHolder = GetAppropriateItemPlaceHolder(item);
 
-
-        if (item.ItemType == Item.ItemTypeEnum.Helmet)
+        if (!appropriateItemPlaceHolder.isPlaceholderEquiped)
         {
-            if (_currentHelmet.itemScriptableObj != null)
-            {
-                if (_currentHelmet.itemScriptableObj.Name == item.Name)
-                {
-                    Destroy(_currentHelmet.itemGameObj);
-                    _currentHelmet.itemScriptableObj = null;
-                    return;
-                }
-            }
-
-
-            var obj = CreateAndSetupItemInPartOfBody(item, _helmet);
-
-            SetupCurrentEquipedItem(_currentHelmet, obj, item);
-
+            Equip(item);
         }
-        else if (item.ItemType == Item.ItemTypeEnum.Weapon)
+        else if (appropriateItemPlaceHolder.isPlaceholderEquiped && IsPlaceholderEquipedBySameItem(appropriateItemPlaceHolder, item))
         {
-            if (_currentWeapon.itemScriptableObj != null)
-            {
-                if (_currentWeapon.itemScriptableObj.Name == item.Name)
-                {
-                    Destroy(_currentWeapon.itemGameObj);
-                    _currentWeapon.itemScriptableObj = null;
-                    return;
-                }
-            }
-
-            var obj = CreateAndSetupItemInPartOfBody(item, _weapon);
-
-            SetupCurrentEquipedItem(_currentWeapon, obj, item);
+            UnEquip(item);
         }
-
+        else if (appropriateItemPlaceHolder.isPlaceholderEquiped && !IsPlaceholderEquipedBySameItem(appropriateItemPlaceHolder, item))
+        {
+            UnEquip(appropriateItemPlaceHolder.itemScriptableObj);
+            Equip(item);
+        }
     }
-    private void SetupCurrentEquipedItem(EquipedItem equipedItem, GameObject obj, Item item)
+
+    private void Equip(Item item)
     {
-        if (equipedItem.itemGameObj != null)
-        {
-            Destroy(equipedItem.itemGameObj);
-        }
-        equipedItem.itemGameObj = obj;
-        equipedItem.itemScriptableObj = item;
-
+        var itemGameobject = CreateAndSetupItemInPartOfBody(item);
+        SetupEquipedItemPlaceHolder(item, itemGameobject);
     }
-    private GameObject CreateAndSetupItemInPartOfBody(Item item, ItemProperties properties)
+    private void UnEquip(Item item)
+    {
+        var itemPlaceHolder = GetAppropriateItemPlaceHolder(item);
+        Destroy(itemPlaceHolder.itemGameObj);
+        itemPlaceHolder.itemScriptableObj = null;
+        itemPlaceHolder.isPlaceholderEquiped = false;
+    }
+    private void SetupEquipedItemPlaceHolder(Item item, GameObject obj)
+    {
+        var itemPlaceHolder = GetAppropriateItemPlaceHolder(item);
+        if (itemPlaceHolder.itemGameObj != null)
+        {
+            Destroy(itemPlaceHolder.itemGameObj);
+        }
+        itemPlaceHolder.itemGameObj = obj;
+        itemPlaceHolder.itemScriptableObj = item;
+        itemPlaceHolder.isPlaceholderEquiped = true;
+    }
+    private GameObject CreateAndSetupItemInPartOfBody(Item item)
     {
         var obj = Instantiate(item.Prefab, transform.position, Quaternion.identity);
+        var itemBodyPropertie = _itemBodyProperies.Where(prop => prop.itemType == item.ItemType).First();
 
-        obj.transform.parent = properties.playerBodyPart;
+        obj.transform.parent = itemBodyPropertie.playerBodyPart;
         obj.transform.localPosition = item.LocalPosInPlayerBody;
         obj.transform.localRotation = Quaternion.Euler(item.LocalEulerInPlayerBody);
 
         return obj;
     }
+    private void CreateItemPlaceholders()
+    {
+        _equipedItems = new List<EquipedItemPlaceHolder>();
 
+        foreach (var itemType in Enum.GetValues(typeof(Item.ItemTypeEnum)))
+        {
+            var newPlaceHolder = new EquipedItemPlaceHolder();
+            newPlaceHolder.itemType = (Item.ItemTypeEnum)itemType;
+            _equipedItems.Add(newPlaceHolder);
+        }
+    }
+    private EquipedItemPlaceHolder GetAppropriateItemPlaceHolder(Item item)
+    {
+        return _equipedItems.Where(eq => eq.itemType == item.ItemType).First();
+    }
+    private bool IsPlaceholderEquipedBySameItem(EquipedItemPlaceHolder holder, Item item)
+    {
+        if(holder.itemScriptableObj == item)
+        {
+            return true;
+        }
+        return false;
+    }
 
     [System.Serializable]
-    private struct ItemProperties
+    private struct ItemBodyProperties
     {
-
+        public Item.ItemTypeEnum itemType;
         public Transform playerBodyPart;
-
-        //here can be other properties
     }
 }

@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 
 public class InventorySection : AbstractItemsSection
 {
@@ -19,6 +17,6 @@ public class InventorySection : AbstractItemsSection
 
     private void EquipItem(Item item)
     {
-        player.GetComponent<PlayerItemsEquiper>().Equip(item);
+        player.GetComponent<PlayerItemsEquiper>().TryToEquip(item);
     }
 }
