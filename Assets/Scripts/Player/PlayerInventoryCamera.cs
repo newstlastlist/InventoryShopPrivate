@@ -15,7 +15,6 @@ public class PlayerInventoryCamera : MonoBehaviour
 
         _startPosition = transform.localPosition;
         _startRotation = transform.localRotation;
-
     }
    
     public void GoToInventoryMode()
@@ -30,9 +29,7 @@ public class PlayerInventoryCamera : MonoBehaviour
     }
     public void GoToMainPlayerCamera()
     {
-
         transform.DOMove(_mainCamera.transform.position, _moveTime);
         transform.DORotateQuaternion(_mainCamera.transform.rotation, _moveTime).OnComplete( () => _camera.depth = _mainCamera.depth - 10);
-
     }
 }

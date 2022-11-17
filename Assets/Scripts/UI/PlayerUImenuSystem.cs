@@ -6,10 +6,8 @@ public class PlayerUImenuSystem : MonoBehaviour
     [SerializeField] private InventoryMenu _inventoryMenu;
     [SerializeField] private ShopMenu _shopMenu;
     private List<IPlayerMenu> _menus = new List<IPlayerMenu>();
-
     public ShopMenu ShopMenu { get => _shopMenu;  }
     public InventoryMenu InventoryMenu { get => _inventoryMenu; }
-
 
     private void Awake()
     {
@@ -19,7 +17,6 @@ public class PlayerUImenuSystem : MonoBehaviour
     public void OpenInventoryMenu()
     {
         ShowMenu<InventoryMenu>();
-        // HideAllOtherMenusExceptThis<InventoryMenu>();
     }
     public void CloseInventoryMenu()
     {
@@ -28,7 +25,6 @@ public class PlayerUImenuSystem : MonoBehaviour
     public void OpenShopMenu()
     {
         ShowMenu<ShopMenu>();
-        // HideAllOtherMenusExceptThis<ShopMenu>();
     }
     public void CloseShopMenu()
     {
@@ -39,10 +35,8 @@ public class PlayerUImenuSystem : MonoBehaviour
     {
         foreach (IPlayerMenu menu in _menus)
         {
-
             if (menu.IsOpened)
             {
-                // menu.Close();
                 continue;
             }
 

@@ -20,7 +20,6 @@ public class ItemRepresenterInUI : MonoBehaviour
     public void SetImageColor(Color color)
     {
         _image.color = new Color(color.r, color.g, color.b, 1);
-
     }
     public void SetPrice(int cost)
     {

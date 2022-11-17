@@ -5,10 +5,8 @@ using UnityEngine;
 public abstract class AbstractItemsPlayerMenu : MonoBehaviour
 {
     [SerializeField] private ItemsList _items;
-
     [SerializeField] protected ItemRepresenterInUI _representerPrefab;
     protected List<AbstractItemsSection> sections;
-
 
     protected virtual void Start()
     {

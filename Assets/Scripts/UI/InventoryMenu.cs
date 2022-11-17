@@ -9,14 +9,12 @@ public class InventoryMenu : AbstractItemsPlayerMenu, IPlayerMenu
     public void Close()
     {
         _isOpened = false;
-
         gameObject.SetActive(false);
     }
 
     public void Open()
     {
         _isOpened = true;
-
         gameObject.SetActive(true);
     }
     protected override void OnEnable()

@@ -5,6 +5,5 @@ using UnityEngine;
 public class ItemsList : ScriptableObject
 {
     [SerializeField] private List<Item> _items;
-
     public List<Item> Items { get => _items;  }
 }

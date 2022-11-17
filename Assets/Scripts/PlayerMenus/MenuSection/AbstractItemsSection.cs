@@ -29,11 +29,9 @@ public abstract class AbstractItemsSection : MonoBehaviour
 
         sectionItem.SetName(item.Name);
         sectionItem.SetImageColor(item.Color);
-
     }
     public virtual void RemoveRepresenterFromSection(Item item)
     {
-        
         for (int i = 0; i < _sectionItemsList.Count; i++)
         {
             if(item.Name == _sectionItemsList[i].Name.text)

@@ -12,7 +12,6 @@ public class PlayerInput : MonoBehaviour
         _playerUimenuSystem = playerUimenuSystem;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -29,7 +28,6 @@ public class PlayerInput : MonoBehaviour
                 _inventoryCamera.GoToMainPlayerCamera();
                 return;
             }
-
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -43,7 +41,6 @@ public class PlayerInput : MonoBehaviour
                 _playerUimenuSystem.CloseShopMenu();
                 return;
             }
-
         }
     }
 }
